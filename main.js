@@ -1,9 +1,8 @@
 //select all the squares
 const squares = document.querySelectorAll(".square");
-
 const mole = document.querySelector(".mole");
-
 const startButton = document.querySelector("#start-game");
+const grid = document.querySelector(".grid");
 
 let result = 0;
 
@@ -16,6 +15,7 @@ function randomSquare() {
 
   //getting a random square and then adding a mole to it
   let randomSquare = squares[Math.floor(Math.random() * 9)];
+  //adding mole
   randomSquare.classList.add("mole");
 }
 
@@ -23,6 +23,18 @@ function randomSquare() {
 
 //start the game and move the mole
 function start() {
-  setInterval(randomSquare, 500);
+  gametimer = 0;
+  gamertimer = setInterval(randomSquare, 800);
+}
+
+function stop() {
+  clearInterval(gamertimer);
 }
 startButton.addEventListener("click", start);
+
+// //when we hit the mole we have to get a point
+grid.addEventListener("click", (e) => {
+  if (e.target()) {
+  }
+  //console.log(e.target);
+});

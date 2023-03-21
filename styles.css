@@ -1,6 +1,5 @@
-html {
-  background-image: url("naruto-pain.jpg");
-  background-size: cover;
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -11,22 +10,28 @@ body {
   justify-content: center;
   flex-direction: column;
   color: white;
+  background-image: url("naruto-pain.jpg");
+  background-size: cover;
 }
 
 .grid {
-  width: 606px;
-  height: 606px;
+  width: 450px;
+  height: 450px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .square {
-  height: 200px;
-  width: 200px;
+  height: 150;
+  width: 150px;
   border: solid white 1px;
 }
 
 .mole {
   background-image: url("wack a pain2.jpg");
   background-size: cover;
+}
+
+h3 {
+  color: red;
 }
