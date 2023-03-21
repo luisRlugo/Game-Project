@@ -1,7 +1,17 @@
-/* html {
+html {
   background-image: url("naruto-pain.jpg");
   background-size: cover;
-} */
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
 
 .grid {
   width: 606px;
@@ -13,7 +23,7 @@
 .square {
   height: 200px;
   width: 200px;
-  border: solid black 1px;
+  border: solid white 1px;
 }
 
 .mole {

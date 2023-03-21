@@ -3,6 +3,8 @@ const squares = document.querySelectorAll(".square");
 
 const mole = document.querySelector(".mole");
 
+const startButton = document.querySelector("#start-game");
+
 let result = 0;
 
 //grabbing random square for the mole to be in
@@ -16,3 +18,11 @@ function randomSquare() {
   let randomSquare = squares[Math.floor(Math.random() * 9)];
   randomSquare.classList.add("mole");
 }
+
+/*The setInterval() method calls a function at specified intervals (in milliseconds)*/
+
+//start the game and move the mole
+function start() {
+  setInterval(randomSquare, 500);
+}
+startButton.addEventListener("click", start);
