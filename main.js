@@ -22,8 +22,8 @@ function randomSquare() {
 
 //to keep track of the score
 let result = 0;
-//start countdown will be 60secs
-let currentTime = 60;
+//start countdown will be 30secs
+let currentTime = 30;
 
 //storing interval ID to move mole randomly and for the countdown Timer
 let moveMole;
@@ -35,7 +35,7 @@ function start() {
   result = 0;
 
   //resetting the countdown to 60secs
-  currentTime = 60;
+  currentTime = 30;
 
   //updating the score display to show 0
   document.querySelector("#score").textContent = result;
@@ -44,7 +44,10 @@ function start() {
   countDownTimer = setInterval(countDown, 1000);
 
   //moving mole random every milliseconds
-  moveMole = setInterval(randomSquare, 1000);
+  moveMole = setInterval(randomSquare, 750);
+
+  // disabling the start button
+  startButton.setAttribute("disabled", true);
 }
 // stop the game
 function stop() {
@@ -64,6 +67,9 @@ function countDown() {
     clearInterval(countDownTimer);
     clearInterval(moveMole);
     alert("Times up! Final score is " + result);
+
+    // removing the disabled attribute from the start button
+    startButton.removeAttribute("disabled");
   }
 }
 //start button
