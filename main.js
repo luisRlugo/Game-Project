@@ -1,10 +1,13 @@
 //select all the squares
 const squares = document.querySelectorAll(".square");
 const mole = document.querySelector(".mole");
-const startButton = document.querySelector("#start-game");
+// const startButton = document.querySelector("#start-game");
 const grid = document.querySelector(".grid");
 const timeLeft = document.querySelector("#time-left");
 const nonMole = document.querySelector(".nonMole");
+const easyButton = document.querySelector("#easy");
+const mediumButton = document.querySelector("#medium");
+const hardButton = document.querySelector("#hard");
 
 //grabbing random square for the mole to be in
 function randomSquare() {
@@ -34,7 +37,7 @@ let moveMole;
 let countDownTimer;
 
 //start the game and move the mole
-function start() {
+function start(speed) {
   //resetting the reuslts to 0 whenever the game starts
   result = 0;
 
@@ -48,10 +51,10 @@ function start() {
   countDownTimer = setInterval(countDown, 1000);
 
   //moving mole random every milliseconds
-  moveMole = setInterval(randomSquare, 750);
+  moveMole = setInterval(randomSquare, speed);
 
   // disabling the start button
-  startButton.setAttribute("disabled", true);
+  //   startButton.setAttribute("disabled", true);
 }
 // stop the game
 function stop() {
@@ -59,6 +62,26 @@ function stop() {
   clearInterval(moveMole);
   clearInterval(countDownTimer);
 }
+
+//adding difficulty buttons
+easyButton.addEventListener("click", () => {
+  start(1000);
+  easyButton.setAttribute("disabled", true);
+  mediumButton.setAttribute("disabled", true);
+  hardButton.setAttribute("disabled", true);
+});
+mediumButton.addEventListener("click", () => {
+  start(600);
+  easyButton.setAttribute("disabled", true);
+  mediumButton.setAttribute("disabled", true);
+  hardButton.setAttribute("disabled", true);
+});
+hardButton.addEventListener("click", () => {
+  start(400);
+  easyButton.setAttribute("disabled", true);
+  mediumButton.setAttribute("disabled", true);
+  hardButton.setAttribute("disabled", true);
+});
 
 //update coutdown timer
 function countDown() {
@@ -74,11 +97,17 @@ function countDown() {
     alert("Times up! Final score is " + result);
 
     // removing the disabled attribute from the start button
-    startButton.removeAttribute("disabled");
+    // startButton.removeAttribute("disabled");
+
+    //re-enable the level buttons
+    easyButton.removeAttribute("disabled");
+    mediumButton.removeAttribute("disabled");
+    hardButton.removeAttribute("disabled");
   }
 }
+
 //start button
-startButton.addEventListener("click", start);
+// startButton.addEventListener("click", start);
 
 //when we click on the mole we have to get a point
 grid.addEventListener("click", (e) => {
