@@ -1,4 +1,3 @@
-//select all the squares
 const squares = document.querySelectorAll(".square");
 const mole = document.querySelector(".mole");
 // const startButton = document.querySelector("#start-game");
@@ -8,6 +7,14 @@ const nonMole = document.querySelector(".nonMole");
 const easyButton = document.querySelector("#easy");
 const mediumButton = document.querySelector("#medium");
 const hardButton = document.querySelector("#hard");
+
+//to keep track of the score
+let result = 0;
+//start countdown will be 30secs
+let currentTime = 30;
+//storing interval ID to move mole randomly and for the countdown Timer
+let moveMole;
+let countDownTimer;
 
 //grabbing random square for the mole to be in
 function randomSquare() {
@@ -26,15 +33,6 @@ function randomSquare() {
 }
 
 /*The setInterval() method calls a function at specified intervals (in milliseconds)*/
-
-//to keep track of the score
-let result = 0;
-//start countdown will be 30secs
-let currentTime = 30;
-
-//storing interval ID to move mole randomly and for the countdown Timer
-let moveMole;
-let countDownTimer;
 
 //start the game and move the mole
 function start(speed) {
@@ -58,7 +56,7 @@ function start(speed) {
 }
 // stop the game
 function stop() {
-  //stop mole movement and stop countdowon
+  //reset mole movement and stop countdowon
   clearInterval(moveMole);
   clearInterval(countDownTimer);
 }
