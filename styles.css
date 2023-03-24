@@ -35,9 +35,10 @@ body {
   background-size: cover;
 }
 
-/* .nonMole {
-  background-color: red;
-} */
+.nonMole {
+  background-image: url("hinata.jpg");
+  background-size: cover;
+}
 
 h3 {
   color: red;
